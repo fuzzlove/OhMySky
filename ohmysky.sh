@@ -6,7 +6,7 @@
 
 # Optional (Recommended): export OHMYSKY_GUARD_STRICT=1
 
-set -eu
+set -euo pipefail
 
 DIR="$HOME/.ohmysky"
 CACHE="$HOME/.cache/ohmysky"
@@ -100,14 +100,14 @@ cat <<'BANNER'
 
 ╔══════════════════════════════════════════════╗
 ║                                              ║
-║   ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗   ║
-║  ██╔═══██╗██║  ██║    ████╗ ████║╚██╗ ██╔╝   ║
-║  ██║   ██║███████║    ██╔████╔██║ ╚████╔╝    ║
-║  ██║   ██║██╔══██║    ██║╚██╔╝██║  ╚██╔╝     ║
-║  ╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║      ║
-║   ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝      ║
+║   ██████╗ ██╗  ██╗    ███╗   ███╗██╗   ██╗  ║
+║  ██╔═══██╗██║  ██║    ████╗ ████║╚██╗ ██╔╝  ║
+║  ██║   ██║███████║    ██╔████╔██║ ╚████╔╝   ║
+║  ██║   ██║██╔══██║    ██║╚██╔╝██║  ╚██╔╝    ║
+║  ╚██████╔╝██║  ██║    ██║ ╚═╝ ██║   ██║     ║
+║   ╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝   ╚═╝     ║
 ║                                              ║
-║              O H   M Y   S K Y               ║
+║              O H   M Y   S K Y              ║
 ║                                              ║
 ║         Security Research Terminal           ║
 ║                                              ║
@@ -126,40 +126,22 @@ passwd
 authorized_keys
 id_rsa
 id_ed25519
-.ssh
 ssh-keygen
-ssh-add
+security dump-keychain
 security find-generic-password
 security find-internet-password
-security dump-keychain
-security unlock-keychain
-security list-keychains
-keychain
-login.keychain
 osascript
-osascript -e
 launchctl
 LaunchAgents
 LaunchDaemons
-.plist
 crontab
-at now
-periodic
 chmod +x
 chmod 777
 chown root
-chflags
 xattr -d
 spctl --master-disable
 csrutil disable
 tccutil reset
-sqlite3 ~/Library
-~/Library/Application Support
-~/Library/LaunchAgents
-/Library/LaunchAgents
-/Library/LaunchDaemons
-/tmp
-/var/tmp
 curl
 wget
 python -c
@@ -177,27 +159,17 @@ socat
 mkfifo
 /dev/tcp
 base64 -d
-base64 --decode
 openssl enc
 xxd -r
-hexdump
 tar
-gzip
-gunzip
 zip
-unzip
 7z
-ditto
 scp
 sftp
 rsync
-ftp
-tftp
-ssh
 sshpass
 whoami
 id
-groups
 uname -a
 sw_vers
 system_profiler
@@ -209,17 +181,13 @@ lsof -i
 arp -a
 route -n
 scutil
-dscacheutil
 dscl
 last
-lastlog
 w
 who
-users
 ps aux
 pgrep
 top
-vm_stat
 df -h
 du -sh
 mount
@@ -227,9 +195,6 @@ diskutil
 find /
 find ~
 mdfind
-mdls
-ls -la
-ls -al
 cat ~/.zsh_history
 cat ~/.bash_history
 history -c
@@ -237,37 +202,28 @@ unset HISTFILE
 export HISTFILE=/dev/null
 rm ~/.zsh_history
 rm ~/.bash_history
-killall Terminal
-killall iTerm2
 tcpdump
 tshark
 wireshark
 nmap
 masscan
-arp-scan
 dig
 nslookup
 host
 whois
 traceroute
-ping -c
 curl ifconfig.me
 curl ipinfo.io
 curl api.ipify.org
 plutil
 defaults read
 defaults write
-open -a
-open /Applications
 codesign
-codesign -dv
 otool
 strings
 file
 shasum
 md5
-xxd
-dyld
 DYLD_INSERT_LIBRARIES
 DYLD_LIBRARY_PATH
 install_name_tool
@@ -277,23 +233,19 @@ kmutil
 systemextensionsctl
 profiles
 profiles show
-profiles list
 fdesetup
 spctl
 csrutil
 tmutil
-softwareupdate
 pkgutil
 installer
 hdiutil attach
-hdiutil mount
 diskutil erase
 dd if=
 mkfs
 rm -rf /
 rm -rf ~
 rm -rf /Users
-srm
 shred
 pkill
 kill -9
@@ -307,9 +259,7 @@ launchctl list
 curl -o
 curl -O
 wget -O
-wget -q
 chmod u+s
-setuid
 sudoers
 visudo
 /etc/sudoers
@@ -319,50 +269,35 @@ dscl . -create
 dscl . -append
 dscl . -passwd
 dseditgroup
-createhomedir
 networksetup
 airport
-wdutil
 pfctl
 pfctl -d
-pfctl -f
-/etc/pf.conf
 iptables
 ufw disable
 systemctl
-service
 journalctl
 log show
 log stream
-log erase
 sqlite3
-browser cookies
 Cookies.binarycookies
 Login Data
-History
 Chrome
 Firefox
 Safari
 Brave
 Keychain
-AddressBook
 Messages
 Mail
 Notes
 Calendar
 Photos
-ScreenCapture
 screencapture
-screencapture -x
-say
 pbpaste
 pbcopy
-ioreg -l
 system_profiler SPUSBDataType
 system_profiler SPBluetoothDataType
-system_profiler SPAirPortDataType
 system_profiler SPApplicationsDataType
-system_profiler SPConfigurationProfileDataType
 pspy
 linpeas
 linpeas.sh
@@ -384,8 +319,6 @@ ngrok
 cloudflared tunnel
 chisel
 frp
-frpc
-frps
 tailscale
 zerotier
 tor
@@ -394,16 +327,11 @@ proxychains
 ssh -D
 ssh -L
 ssh -R
-socat TCP
-socat EXEC
 python3 -m http.server
 python -m SimpleHTTPServer
 php -S
-ruby -run
 openssl s_client
-openssl rsautl
 gpg
-age
 tar czf
 zip -r
 scp -r
@@ -447,10 +375,25 @@ ohmysky_guard_warn(){
   echo
 }
 
+ohmysky_guard_overlay(){
+  if [ "$(uname)" = "Darwin" ] && command -v osascript >/dev/null 2>&1; then
+    osascript <<'APPLESCRIPT' >/dev/null 2>&1 &
+display dialog "OhMySky Guard detected suspicious shell activity.
+
+This system is monitored. Unauthorized access or use may violate the Computer Fraud and Abuse Act (CFAA), 18 U.S.C. § 1030.
+
+The command has been logged by OhMySky Guard." buttons {"Acknowledge"} default button "Acknowledge" with title "OhMySky Guard Alert" with icon caution
+APPLESCRIPT
+  elif command -v notify-send >/dev/null 2>&1; then
+    notify-send "OhMySky Guard Alert" "Suspicious shell activity detected and logged." >/dev/null 2>&1 || true
+  else
+    printf '\a'
+  fi
+}
+
 ohmysky_guard_log(){
   matched="$1"
   cmd="$2"
-
   {
     echo "----- OHMYSKY GUARD ALERT -----"
     date
@@ -472,14 +415,13 @@ ohmysky_guard_check(){
   [ -z "$cmd" ] && return 0
 
   while IFS= read -r pattern || [ -n "$pattern" ]; do
-    case "$pattern" in
-      ""|\#*) continue ;;
-    esac
+    case "$pattern" in ""|\#*) continue ;; esac
 
     case "$cmd" in
       *"$pattern"*)
         ohmysky_guard_log "$pattern" "$cmd"
         ohmysky_guard_warn
+        ohmysky_guard_overlay
 
         if [ "${OHMYSKY_GUARD_STRICT:-0}" = "1" ]; then
           exit 126
@@ -493,7 +435,7 @@ ohmysky_guard_check(){
 EOF
 
 cat > "$DIR/bash.sh" <<'EOF'
-[ -n "$BASH_VERSION" ] || return 0 2>/dev/null || exit 0
+[ -n "${BASH_VERSION:-}" ] || return 0 2>/dev/null || exit 0
 . "$HOME/.ohmysky/common.sh"
 . "$HOME/.ohmysky/guard.sh"
 
@@ -523,7 +465,7 @@ trap ohmysky_guard_bash_trap DEBUG
 [ -z "${OHMYSKY_LOADED:-}" ] && {
   export OHMYSKY_LOADED=1
   ohmysky_banner
-  [ -n "$SSH_CONNECTION" ] && echo "[ WARNING ] Remote SSH session detected."
+  [ -n "${SSH_CONNECTION:-}" ] && echo "[ WARNING ] Remote SSH session detected."
   [ "$EUID" -eq 0 ] && echo "[ DANGER ] Security Research Mode: ROOT"
 }
 
@@ -535,7 +477,7 @@ ${GRAY}\$(ohmysky_context)${RESET}
 EOF
 
 cat > "$DIR/zsh.zsh" <<'EOF'
-[ -n "$ZSH_VERSION" ] || return 0 2>/dev/null || exit 0
+[ -n "${ZSH_VERSION:-}" ] || return 0 2>/dev/null || exit 0
 . "$HOME/.ohmysky/common.sh"
 . "$HOME/.ohmysky/guard.sh"
 
@@ -558,7 +500,7 @@ preexec(){
 [ -z "${OHMYSKY_LOADED:-}" ] && {
   export OHMYSKY_LOADED=1
   ohmysky_banner
-  [ -n "$SSH_CONNECTION" ] && print -P "%F{203}[ WARNING ] Remote SSH session detected.%f"
+  [ -n "${SSH_CONNECTION:-}" ] && print -P "%F{203}[ WARNING ] Remote SSH session detected.%f"
   [ "$EUID" -eq 0 ] && print -P "%F{203}[ DANGER ] Security Research Mode: ROOT%f"
 }
 
@@ -584,9 +526,9 @@ echo "OhMySky installed for Bash and Zsh."
 echo "Pattern file: $HOME/.ohmysky/guard-patterns.txt"
 echo "Guard log:    $HOME/.ohmysky/ohmysky-guard.log"
 echo
-echo "Reload with:"
+echo "Reload:"
 echo "  source ~/.zshrc"
 echo "  source ~/.bashrc"
 echo
-echo "Optional strict mode:"
-echo "  export OHMYSKY_GUARD_STRICT=1"
+echo "One-liner:"
+echo '  bash -c "$(curl -fsSL https://raw.githubusercontent.com/fuzzlove/OhMySky/main/ohmysky.sh)"'
