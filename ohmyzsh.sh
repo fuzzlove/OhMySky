@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
-#chmod +x ohmysky.sh
-#./ohmysky.sh
-#source ~/.zshrc
+# chmod +x ohmysky.sh
+# ./ohmysky.sh
+# source ~/.zshrc
+
+# Optional (Recommended): export OHMYSKY_GUARD_STRICT=1
 
 set -eu
 
